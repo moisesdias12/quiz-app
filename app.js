@@ -48,6 +48,7 @@ function showFormPanel() {
 
 function hideFormPanel() {
     addLinkPanel.classList.add('hidden');
+    clearLinkForm();
 }
 
 linkCategory.addEventListener('keydown', function (event) {
@@ -70,6 +71,16 @@ function displayLinkCategories() {
         addedCategories.innerHTML += categoryHTMLString;
     }
 }
+
+function clearLinkForm() {
+    linkTitle.value = '';
+    linkUrl.value = '';
+    linkCategory.value = '';
+    linkCategories = [];
+    addedCategories.innerHTML = '';
+
+}
+
 submitButton.addEventListener('click', (event) => {
 
     event.preventDefault();
@@ -86,10 +97,7 @@ submitButton.addEventListener('click', (event) => {
 
     links.unshift(newLink)
 
-    linkTitle.value = '';
-    linkUrl.value = '';
-    linkCategory.value = '';
-    linkCategories = [];
+    clearLinkForm();
 
     displayLinkCategories();
 
