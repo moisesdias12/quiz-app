@@ -19,17 +19,40 @@
     <div class="container">
 
         <div class="panel hidden" id="addLinkPanel">
-            <h3 class="panel-heading">Add link</h3>
+            <h3 class="header">Add link</h3>
             <form id="addLinkForm">
                 <input type="text" name="title" class="form-control" id="linkTitle" placeholder="Title">
                 <input type="text" name="url" class="form-control" id="linkUrl" placeholder="Url">
                 <input type="text" name="category" class="form-control" id="linkCategory" placeholder="Categories csv">
+                <div id="addedCategories">
+                    
+                </div>
                 <input type="submit" value="Submit" id="submitButton">
                 <input type="submit" value="Cancel" id="cancelButton">
             </form>
         </div>
         
-        <div class="linksList">
+        
+        <div id="linksList">
+            <div class="link panel">
+                <div class="link-options">
+                    <button class="btn-sm">Delete</button>
+                    <button class="btn-sm">Edit</button>
+                </div>
+                <a href="http://www.jamesqquick.com">
+                    <h1 class="header">
+                        Link Title
+                    </h1>
+                </a>
+                <p class="link-date">
+                    12/12/2000
+                </p>
+                <div class="categories">
+                    Categories:
+                    <span class="category">web development</span>
+                    <span class="category">javascript</span>
+                </div>
+            </div>
 
         </div>
 

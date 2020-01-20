@@ -3,10 +3,29 @@ const submitButton = document.querySelector("#submitButton");
 const addBtn = document.querySelector("#addBtn");
 const cancelButton = document.querySelector("#cancelButton");
 const addLinkPanel = document.querySelector("#addLinkPanel");
-
+const linksList = document.querySelector("#linksList");
+const addedCategories = document.querySelector("#addedCategories");
 
 let linkCategories = [];
-links = [];
+let links = [
+    {
+        title: 'aaa',
+        url: 'www.aaa',
+        categories: ['cat aaa1', 'cat aaa2']
+    },
+    {
+        title: 'bbb',
+        url: 'www.bbb',
+        categories: ['cat bbb1', 'cat bbb2']
+    },
+    {
+        title: 'ccc',
+        url: 'www.ccc',
+        categories: ['cat ccc1', 'cat ccc2']
+    }
+];
+
+displayLinks();
 
 addBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -32,7 +51,7 @@ function hideFormPanel() {
 }
 
 linkCategory.addEventListener('keydown', function (event) {
-    if(event.keyCode === 188) {
+    if (event.keyCode === 188) {
         event.preventDefault();
         linkCategories.push(linkCategory.value);
         console.log(linkCategories)
@@ -45,8 +64,13 @@ linkCategory.addEventListener('keydown', function (event) {
 
 function displayLinkCategories() {
     console.log("displaying link categories");
+    addedCategories.innerHTML = '';
+    for (let category of linkCategories) {
+        var categoryHTMLString = `<span class="category">${category}</span>`;
+        addedCategories.innerHTML += categoryHTMLString;
+    }
 }
-submitButton.addEventListener('click',(event) => {
+submitButton.addEventListener('click', (event) => {
 
     event.preventDefault();
 
@@ -60,7 +84,7 @@ submitButton.addEventListener('click',(event) => {
         categories
     }
 
-    links.push(newLink)
+    links.unshift(newLink)
 
     linkTitle.value = '';
     linkUrl.value = '';
@@ -70,8 +94,42 @@ submitButton.addEventListener('click',(event) => {
     displayLinkCategories();
 
     hideFormPanel();
-    
+
+    displayLinks();
+
 });
+
+function displayLinks() {
+    linksList.innerHTML = '';
+
+    for (let link of links) {
+        let linkHTMLString = `
+        <div class="link panel">
+                <div class="link-options">
+                    <button class="btn-sm">Delete</button>
+                    <button class="btn-sm">Edit</button>
+                </div>
+                <a href="${link.url}">
+                    <h1 class="header">
+                        ${link.title}
+                    </h1>
+                </a>
+                <p class="link-date">
+                    ${Date.now()}
+                </p>
+                <div class="categories">
+                    Categories:`
+        for (let category of link.categories) {
+            linkHTMLString += `<span class="category">${category}</span>`;
+        }
+        linkHTMLString += `
+                </div>
+            </div>
+        `
+        linksList.innerHTML += linkHTMLString;
+
+    }
+}
 
 
 
