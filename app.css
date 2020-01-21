@@ -42,6 +42,16 @@ a:hover {
     color: var(--main-grey)    
 }
 
+.full-screen-opaque {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 5;
+}
+
 /* NAVBAR */
 #nav {
     height: 60px;
@@ -60,11 +70,34 @@ a:hover {
 .nav-header {
     color: var(--light-accent-color);
     font-size: 28px;
+    transition: all 0.25s;
+}
+
+.nav-header:hover {
+    color: var(--main-accent);
+    letter-spacing: 10px;
+    transform: scale(1.05);
 }
 
 #addBtn {
     font-size: 24px;
     color: var(--light-accent-color);
+    transition: transform 0.25s 0s;
+}
+
+#addBtn:hover {
+    transform: scale(1.2);
+}
+
+@media only screen and (max-width: 786px){
+    #nav {
+        height: 100px;
+    }
+    #navContainer {
+        flex-direction: column;
+        justify-content: center;
+    }
+
 }
 
 /* PANEL */
@@ -90,6 +123,14 @@ a:hover {
     color: var(--main-grey);
 }
 
+#addLinkContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 /* BUTTONS */
 input[type='submit'], button {
     padding: 8px 22px;
@@ -98,6 +139,7 @@ input[type='submit'], button {
     background-color: var(--main-accent);
     color: var(--light-accent-color);
     font-size: 16px;    
+    transition: all 0.5s
 }
 
 input[type='submit']:hover, button:hover {
@@ -115,6 +157,16 @@ input[type='submit']:hover, button:hover {
 .link {
     position: relative;
 }
+
+#linksList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    flex-basis: 100%;
+}
+
 .link-options {
     position: absolute;
     top: 5px;
@@ -139,6 +191,18 @@ input[type='submit']:hover, button:hover {
     font-size: 10px;
     background-color: var(--main-accent);
     color: var(--light-accent-color);
+}
+
+@media only screen and (min-width: 786px){
+    .flex-item {
+        flex-basis: 50%;
+    }
+}
+
+@media only screen and (min-width: 1280px){
+    .flex-item {
+        flex-basis: 33%;
+    }
 }
 
 

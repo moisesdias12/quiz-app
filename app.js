@@ -5,6 +5,7 @@ const cancelButton = document.querySelector("#cancelButton");
 const addLinkPanel = document.querySelector("#addLinkPanel");
 const linksList = document.querySelector("#linksList");
 const addedCategories = document.querySelector("#addedCategories");
+const addLinkContainer = document.querySelector("#addLinkContainer");
 
 let editIndex = -1;
 
@@ -66,6 +67,7 @@ linkCategory.addEventListener('keydown', function (event) {
 })
 
 
+
 function displayLinkCategories() {
     console.log("displaying link categories");
     addedCategories.innerHTML = '';
@@ -122,7 +124,8 @@ function displayLinks() {
     let index = 0;
     for (let link of links) {
         let linkHTMLString = `
-        <div class="link panel">
+        <div class="flex-item">
+            <div class="link panel">
                 <div class="link-options">
                     <button class="btn-sm" onclick="deleteLink(${index})">Delete</button>
                     <button class="btn-sm" onclick="editLink(${index})">Edit</button>
@@ -143,6 +146,7 @@ function displayLinks() {
         linkHTMLString += `
                 </div>
             </div>
+        </div>
         `
         linksList.innerHTML += linkHTMLString;
         index++;
