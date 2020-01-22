@@ -20,12 +20,14 @@ let links = [
     {
         title: 'bbb',
         url: 'www.bbb',
-        categories: ['cat bbb1', 'cat bbb2']
+        categories: ['cat bbb1', 'cat bbb2'],
+        date: new Date()
     },
     {
         title: 'ccc',
         url: 'www.ccc',
-        categories: ['cat ccc1', 'cat ccc2']
+        categories: ['cat ccc1', 'cat ccc2'],
+        date: new Date()
     }
 ];
 
@@ -98,7 +100,8 @@ submitButton.addEventListener('click', (event) => {
     const newLink = {
         title,
         url,
-        categories
+        categories,
+        date : new Date()
     }
 
     if(editIndex === -1){
@@ -137,7 +140,7 @@ function displayLinks() {
                     </h1>
                 </a>
                 <p class="link-date">
-                    ${Date.now()}
+                    ${link.date}
                 </p>
                 <div class="categories">
                     Categories:`
@@ -172,5 +175,8 @@ function editLink(index) {
     showFormPanel();
 }
 
+function formatDate(date){
+    return "hi there"
+}
 
 
