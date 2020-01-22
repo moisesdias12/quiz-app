@@ -48,7 +48,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.85);
+    background-color: rgba(0,0,0,0.85);
     z-index: 5;
 }
 
@@ -129,6 +129,13 @@ a:hover {
     align-items: center;
 }
 
+#addLinkContainer.hidden {
+    display: none;
+}
+
+#addLinkPanel {
+    animation: slide-down 1s 0s ease-in;
+}
 
 
 /* BUTTONS */
@@ -205,5 +212,20 @@ input[type='submit']:hover, button:hover {
     }
 }
 
+/* ANIMATIONS */
+@keyframes slide-down {
+    0% {
+        transform: translateY(-1000px);
+    }
+    90%{
+        transform: translateY(25px);
+    }
+    95%{
+        transform: translateY(-10px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
 
 

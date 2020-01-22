@@ -14,7 +14,8 @@ let links = [
     {
         title: 'aaa',
         url: 'www.aaa',
-        categories: ['cat aaa1', 'cat aaa2']
+        categories: ['cat aaa1', 'cat aaa2'],
+        date: new Date()
     },
     {
         title: 'bbb',
@@ -46,12 +47,12 @@ console.log(addLinkPanel.classList);
 
 
 function showFormPanel() {
-    addLinkPanel.classList.remove('hidden');
+    addLinkContainer.classList.remove('hidden');
     displayLinkCategories();
 }
 
 function hideFormPanel() {
-    addLinkPanel.classList.add('hidden');
+    addLinkContainer.classList.add('hidden');
     clearLinkForm();
 }
 
